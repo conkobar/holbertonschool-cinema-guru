@@ -1,6 +1,6 @@
 import React from 'react';
 import './movies.css';
-import SearchBar from './SearchBar';
+import SearchBar from '../general/SearchBar';
 import Tag from './Tag';
 
 const Filter = ({
