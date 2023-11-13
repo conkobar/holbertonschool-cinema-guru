@@ -1,17 +1,23 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from '../navigation/Header.js';
 import SideBar from '../../components/navigation/SideBar.js';
 import './dashboard.css';
 
 const Dashboard = ({ userUsername, setIsLoggedIn }) => {
   return (
-    <div>
+    <BrowserRouter>
       <Header userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />
       <div className="dashboard-container">
         <SideBar />
-        {/* Add other elements here */}
+        <Routes>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/watchlater" element={<WatchLater />} />
+          <Route path="*" element={<Navigate to="/home" />} />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 };
 
